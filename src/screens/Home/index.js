@@ -1,17 +1,20 @@
-import React from "react"
-import{ Text, View, StatusBar } from "react-native";
+import React from "react";
+import { FlatList, StatusBar } from "react-native";
 import CardQuestion from "../../components/CardQuestion";
+import colors from "../../styles/colors";
 import { Container, TextToolBar, ToolBar } from "./styles";
 
-
 function Home() {
-    return
+  StatusBar.setBackgroundColor(colors.primary);
+
+  return (
     <Container>
-        <Toolbar>
-            <TextToolBar> SENAI OVERFLOW </TextToolBar>
-        </Toolbar>
-        <CardQuestion/>
-    </Container>;
+      <ToolBar>
+        <TextToolBar>Senai overflow</TextToolBar>
+      </ToolBar>
+        <FlatList data={[1,2,3]} keyExtractor={(n) => String(n)} renderItem={(n) => (<CardQuestion />)}/>
+    </Container>
+  );
 }
 
 export default Home;
